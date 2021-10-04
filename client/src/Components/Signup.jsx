@@ -35,15 +35,13 @@ const Signup = () => {
     <section className='page-wrapper' id='signup'>
       <h1>Signup</h1>
 
-      <form onSubmit={handleSubmit} autoComplete='off'>
-        <div className="input-container">
-          <label for='avatar'>
-            <img src={userInputs.avatar} alt="avatar" />
-          </label>
+      <form onSubmit={handleSubmit}>
+        <div className="input-container avatar">
+          <img src={userInputs.avatar} alt="avatar" />
           <FileBase64
             type='file'
             accept='image/*'
-            id='avatar'
+            id='choose-avatar'
             multiple={ false }
             onDone={({base64}) => setUserInputs({
               ...userInputs,
@@ -53,15 +51,15 @@ const Signup = () => {
         </div>
 
         <div className="input-container">
-          <input type="text" name="username" placeholder='Username' required onChange={handleInput}/>
+          <input type="text" name="username" placeholder='Username' autoComplete='off' required onChange={handleInput}/>
         </div>
 
         <div className="input-container">
-          <input type="email" name="email" placeholder='Email' required onChange={handleInput}/>
+          <input type="email" name="email" placeholder='Email' autoComplete='off' required onChange={handleInput}/>
         </div>
 
         <div className="input-container">
-          <input type="password" placeholder='Password' name="password" required onChange={handleInput}/>
+          <input type="password" placeholder='Password' name="password" autoComplete='off' required onChange={handleInput}/>
         </div>
 
         <button type="submit">SIGNUP</button>

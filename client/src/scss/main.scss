@@ -8,21 +8,82 @@
     height: 100vh;
     background: center / cover no-repeat url('../statics/bg.jpg');
     color: white;
+    font-family: 'Montserrat', 'sans-serif';
 
     #signup {
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      h1 {
+        margin: 25px 0;
+        text-align: center;
+      }
 
       form {
+        max-width: 400px;
+        padding: 25px;
         display: flex;
         flex-direction: column;
+        align-items: center;
+        background-color: rgba(245, 245, 245, 0.35);
+        border-radius: 5px;
+        border: 3px solid black;
 
         .input-container {
-          margin: 10px auto;
-          padding: 5px 10px;
-
+          width: 100%;
+          margin: 10px 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
 
           img {
             width: 150px;
+            margin-bottom: 20px;
             border-radius: 50%;
+            display: block;
+          }
+
+          input {
+            padding: 5px 10px;
+            background-color: rgba(50, 50, 50, 0.8);
+            border-radius: 5px;
+            box-shadow: -4px -4px 10px rgba(255, 255, 255, 0.8), 4px 4px 10px rgb(0, 0, 0);
+            border: none;
+            outline: none;
+            color: white;
+            font-weight: bold;
+
+            &:focus {
+              box-shadow: inset -4px -4px 10px rgba(255, 255, 255, 0.8), inset 4px 4px 10px rgb(0, 0, 0);
+            }
+
+            &::placeholder {
+              color: white;
+              font-weight: bold;
+            }
+          }
+        }
+
+        button {
+          width: fit-content;
+          margin-top: 10px;
+          padding: 5px 10px;
+          border-radius: 5px;
+          background-color: rgba(0, 0, 225, 0.8);
+          color: white;
+          border: none;
+          outline: none;
+          box-shadow: -4px -4px 10px rgba(255, 255, 255, 0.8), 4px 4px 10px rgb(0, 0, 0);
+          font-weight: bold;
+          letter-spacing: .5px;
+          cursor: pointer;
+
+          &:hover,
+          &:active,
+          &:focus {
+            box-shadow: inset -4px -4px 10px rgba(255, 255, 255, 0.8), inset 4px 4px 10px rgb(0, 0, 0);
           }
         }
       }
