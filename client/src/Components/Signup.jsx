@@ -10,7 +10,6 @@ const initialState = {
 
 const Signup = () => {
   const [ userInputs, setUserInputs ] = useState(initialState)
-  const { setUser } = useContext(UserContext)
 
   const handleInput = (e) => {
     setUserInputs({
