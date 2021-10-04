@@ -5,10 +5,12 @@ axios.defaults.withCredentials = true
 
 export const signupUser = async (userData) => {
   try {
-    const resApi = await (await axios.post(
-      `/signup`,
-      userData
-    )).data
+    const resApi = await (
+      await axios.post(
+        `/signup`,
+        userData
+      )
+    ).data;
     return resApi
   } catch (err) {
     return err.response.data
@@ -17,9 +19,9 @@ export const signupUser = async (userData) => {
 
 export const getAllUsers = async () => {
   try {
-    const resApi = await (await axios(
-      '/users'
-    )).data
+    const resApi = await (
+      await axios('/users')
+    ).data;
     return resApi 
   } catch (err) {
     return err.response.data

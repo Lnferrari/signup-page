@@ -13,7 +13,6 @@ const initialState = {
 const Signup = () => {
   const [ userInputs, setUserInputs ] = useState(initialState)
 
-  console.log(userInputs.avatar)
   let history = useHistory()
 
   const handleInput = (e) => {
