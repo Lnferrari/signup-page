@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import FileBase64 from 'react-file-base64';
+import { useHistory } from 'react-router';
+import { signupUser } from '../helpers/apiCalls';
 
 const initialState = {
   avatar: 'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcomic-cons.xyz%2Fwp-content%2Fuploads%2FStar-Wars-avatar-icon-Ewok.png&f=1&nofb=1',
@@ -11,6 +13,8 @@ const initialState = {
 const Signup = () => {
   const [ userInputs, setUserInputs ] = useState(initialState)
 
+  let history = useHistory()
+
   const handleInput = (e) => {
     setUserInputs({
       ...userInputs,
@@ -20,7 +24,10 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-
+    const userApi = signupUser()
+    if (!userApi.error) {
+      history.push('/users')
+    }
   }
 
 
