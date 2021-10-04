@@ -14,3 +14,14 @@ export const signupUser = async (userData) => {
     return err.response.data
   }
 }
+
+export const getAllUsers = async () => {
+  try {
+    const resApi = await (await axios(
+      '/users'
+    )).data
+    return resApi 
+  } catch (err) {
+    return err.response.data
+  }
+}
