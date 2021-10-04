@@ -16,7 +16,10 @@ cloudinary.v2.config({
 
 /* ----- EXPRESS MIDDLEWARE ----- */
 app.use( express.json({ limit: '1MB' }) )
-app.use( cors() )
+app.use( cors({
+  origin: 'http://localhost:3000',
+  credentials: true
+}) )
 
 // ENDPOINTS --------------------
 app.get('/', (req, res) => {
