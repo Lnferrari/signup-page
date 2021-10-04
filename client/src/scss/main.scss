@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  .App {
+    width: 100vw;
+    height: 100vh;
+    background: center / cover no-repeat url('../statics/bg.jpg');
+    color: white;
+
+    #signup {
+
+      form {
+        display: flex;
+        flex-direction: column;
+
+        .input-container {
+          margin: 10px auto;
+          padding: 5px 10px;
+
+
+          img {
+            width: 150px;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+  }
+}
