@@ -7,7 +7,7 @@ export const signupUser = async (userData) => {
   try {
     const resApi = await (
       await axios.post(
-        `/signup`,
+        `/users`,
         userData
       )
     ).data;
@@ -21,7 +21,7 @@ export const loginUser = async (userData) => {
   try {
     const resApi = await (
       await axios.post(
-        `/login`,
+        `/users/login`,
         userData
       )
     ).data
@@ -37,6 +37,19 @@ export const getAllUsers = async () => {
       await axios('/users')
     ).data;
     return resApi 
+  } catch (err) {
+    return err.response.data
+  }
+}
+
+export const authenticateUser = async () => {
+  try {
+    const resApi = await (
+      await axios.post(
+        `/users/auth`
+      )
+    ).data;
+    return resApi
   } catch (err) {
     return err.response.data
   }
