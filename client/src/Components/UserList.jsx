@@ -24,7 +24,7 @@ const UserList = () => {
       <h1>Users</h1>
       {
         userList && userList.map(user =>
-          <div className="user-card">
+          <div className="user-card" key={user.username}>
             <div className="user-avatar-container">
               <img src={user.avatar} alt="user avatar" />
             </div>
