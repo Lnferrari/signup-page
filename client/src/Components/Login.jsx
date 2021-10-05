@@ -5,9 +5,7 @@ const Login = () => {
 
   
   return (
-    <section className='page-wrapper' id='signup'>
-      <h1>Login</h1>
-
+    <section className='page-wrapper' id='login'>
       <Form />
     </section>
   )

@@ -71,21 +71,27 @@ const Form = () => {
     <form onSubmit={handleSubmit}>
         
         {
-          route.includes('/signup') &&
-          <div className="input-container avatar">
-            <label htmlFor="avatar">
-              <img src={userInputs.avatar || 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.sqhUFRHRSP73IW9-wcDMcQHaHa%26pid%3DApi&f=1'} alt="avatar" />
-            </label>
-            <input type="file" accept='image/*' name="avatar" id="avatar" onChange={fileHandler}/>
-          </div>
+          route.includes('/signup')
+          ? <>
+            <div className="input-container avatar">
+              <label htmlFor="avatar">
+                <img src={userInputs.avatar || 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.sqhUFRHRSP73IW9-wcDMcQHaHa%26pid%3DApi&f=1'} alt="avatar" />
+                { !userInputs.avatar && <p>Choose an avatar</p>}
+              </label>
+              <input type="file" accept='image/*' name="avatar" id="avatar" onChange={fileHandler}/>
+            </div>
+
+            <div className="input-container">
+              <input type="email" name="email" placeholder='Email' autoComplete='off' required onChange={handleInput}/>
+            </div>
+          </>
+          : <div className="input-container">
+              <img src={'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.sqhUFRHRSP73IW9-wcDMcQHaHa%26pid%3DApi&f=1'} alt="avatar" />
+            </div>
         }
 
         <div className="input-container">
           <input type="text" name="username" placeholder='Username' autoComplete='off' required onChange={handleInput}/>
-        </div>
-
-        <div className="input-container">
-          <input type="email" name="email" placeholder='Email' autoComplete='off' required onChange={handleInput}/>
         </div>
 
         <div className="input-container">

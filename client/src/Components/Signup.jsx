@@ -66,7 +66,6 @@ const Signup = () => {
 
   return (
     <section className='page-wrapper' id='signup'>
-      <h1>Signup</h1>
 
       <Form />
 

@@ -21,7 +21,6 @@ const UserList = () => {
 
   return (
     <section className='page-wrapper' id='userlist'>
-      <h1>Users</h1>
       <div className="user-cards-container">
         {
           userList && userList.map(user =>
