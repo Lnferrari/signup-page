@@ -1,6 +1,8 @@
 import mongoose from 'mongoose'
-const { Schema, model } = mongoose
+import jwt from 'jsonwebtoken'
+import { JWT_TOKEN } from '../server.js'
 
+const { Schema, model } = mongoose
 
 const UserSchema = new Schema({
   avatar: { type: String },

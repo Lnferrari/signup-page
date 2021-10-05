@@ -2,13 +2,12 @@ import dotenv from 'dotenv'
 import './db-connect.js'
 import express from 'express'
 import cors from 'cors'
-import User from './models/User.js'
 import cloudinary from 'cloudinary'
 import cookieParser from 'cookie-parser'
-import jwt from 'jsonwebtoken'
+import userRoutes from './routes/userRoutes.js'
 
 const app = express();
-const JWT_TOKEN = 'holySecret99!'
+export const JWT_TOKEN = 'holySecret99!'
 
 // CONFIG --------------------
 
@@ -28,67 +27,96 @@ app.use( cors({
 }) )
 app.use( cookieParser() )
 
+
 // ENDPOINTS --------------------
 app.get('/', (req, res) => {
   res.send({ hello: 'users API'})
 })
 
 
-app.post('/signup', async (req, res, next) => {
-  try {
-    const { avatar, ...userData } = req.body
-
-    const uploadResponse = await cloudinary.v2.uploader.upload(avatar, {
-      overwrite: true,
-      invalidate: true,
-      width: 600, height: 400, crop: "fill"
-    })
-
-    if (uploadResponse.error) {
-      return new Error(`Ups! Something went wrong`)
-    }
-
-    const newUser = await User.create({
-      ...userData,
-      avatar: uploadResponse.secure_url
-    })
-
-    const token = jwt.sign(
-      { username: newUser.username },
-      JWT_TOKEN, { expiresIn: "1d" }
-    )
-    
-    res
-      .cookie('token', token, {
-        expires: new Date(Date.now() + 172800000),
-        sameSite: 'None',
-        secure: true,
-        httpOnly: true
-      })
-      .json( newUser )
-  } catch (err) {
-    next(err)
-  }
-})
-
-app.get('/users', async (req, res, next) => {
-
-  const token = res.cookie.token
-
-  if (!token) next(new Error(`You need to be registered to be here`))
-
-  try {
-    const users = await User.find().sort('username')
-    res.json(users)
-  } catch (err) {
-    next(err)
-  }
-})
+// ROUTES -----------------------
+app.use('/users', userRoutes)
 
 app.use((req, res, next) => {
   const error = new Error(`Looks like you are lost...`)
   next(error)
 })
+// app.post('/signup', async (req, res, next) => {
+//   try {
+//     const { avatar, ...userData } = req.body
+
+//     const uploadResponse = await cloudinary.v2.uploader.upload(avatar, {
+//       overwrite: true,
+//       invalidate: true,
+//       width: 600, height: 400, crop: "fill"
+//     })
+
+//     if (uploadResponse.error) {
+//       return new Error(`Ups! Something went wrong`)
+//     }
+
+//     const newUser = await User.create({
+//       ...userData,
+//       avatar: uploadResponse.secure_url
+//     })
+
+//     const token = newUser.generateToken()
+    
+//     res
+//       .cookie('token', token, {
+//         expires: new Date(Date.now() + 172800000),
+//         sameSite: 'None',
+//         secure: true,
+//         httpOnly: true
+//       })
+//       .json( newUser )
+//   } catch (err) {
+//     next(err)
+//   }
+// })
+
+
+// app.post('/login', async (req, res, next) => {
+//   try {
+//     const { username } = req.body
+//     const user = await User.findOne({ username })
+//     if (!user) throw new Error(`Username not valid`)
+
+//     const token = user.generateToken()
+
+//     res
+//       .cookie('token', token, {
+//         expires: new Date(Date.now() + 172800000),
+//         sameSite: 'None',
+//         secure: true,
+//         httpOnly: true
+//       })
+//       .json(user)
+//   } catch (err) {
+//     next(err)
+//   }
+// })
+
+// app.get('/users', authentication, async (req, res, next) => {
+
+//   const token = req.cookies.token
+
+//   if (!token) {
+//     return next(new Error(`You need to be registered to be here`))
+//   }
+
+//   try {
+//     const userDecoded = jwt.verify(token, JWT_TOKEN)
+//     req.user = userDecoded
+
+//     const users = await User.find().sort('username')
+//     res.json(users)
+//   } catch (err) {
+//     next(err)
+//   }
+// })
+
+
 
 // ================================================
 
