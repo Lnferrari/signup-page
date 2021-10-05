@@ -4,7 +4,8 @@ import {
   getUsers,
   loginUser,
   createUser,
-  verifyCookie
+  verifyCookie,
+  logoutUser
 } from '../controllers/userControllers.js'
 
 
@@ -19,5 +20,8 @@ router.route('/login')
 
 router.route('/auth')
   .post(auth, verifyCookie)
+
+router.route('/logout')
+  .get(logoutUser)
 
 export default router

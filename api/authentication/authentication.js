@@ -8,11 +8,8 @@ const auth = async (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, JWT_TOKEN)
-    console.log('decoded =>' , decoded)
     const user = await User.findOne({username: decoded.username})
-    console.log('user' , user)
     if (!user) next(new Error(`Authentication failed.`))
-
     req.user = user
     next()
   } catch (err) {

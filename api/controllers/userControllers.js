@@ -67,6 +67,11 @@ export const createUser = async (req, res, next) => {
 }
 
 export const verifyCookie = (req, res, next) => {
-  console.log('req.user', req.user)
   res.send( req.user )
+}
+
+export const logoutUser = (req, res, next) => {
+  res.clearCookie('token').json({
+    message: `Logged out successfully!`
+  })
 }
