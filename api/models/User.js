@@ -13,6 +13,18 @@ const UserSchema = new Schema({
   versionKey: false
 })
 
+
+UserSchema.methods.generateToken = function () {
+  const user = this
+  
+  const token = jwt.sign(
+    {username: user.username},
+    JWT_TOKEN, {expiresIn: '1d'}
+  )
+  
+  return token
+}
+
 const User = model('User', UserSchema)
 
 export default User
