@@ -22,9 +22,9 @@ const Signup = () => {
     })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    const userApi = signupUser()
+    const userApi = await signupUser(userInputs)
     if (!userApi.error) {
       history.push('/users')
     }
@@ -37,11 +37,13 @@ const Signup = () => {
 
       <form onSubmit={handleSubmit}>
         <div className="input-container avatar">
-          <img src={userInputs.avatar} alt="avatar" />
+          <label htmlFor="avatar">
+            <img src={userInputs.avatar} alt="avatar" />
+          </label>
           <FileBase64
             type='file'
             accept='image/*'
-            id='choose-avatar'
+            id='avatar'
             multiple={ false }
             onDone={({base64}) => setUserInputs({
               ...userInputs,

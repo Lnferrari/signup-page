@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import { getAllUsers } from '../helpers/apiCalls'
+import { useHistory } from 'react-router'
 
 const UserList = () => {
   const [ userList, setUserList ] = useState([])
 
+  let history = useHistory()
+
   useEffect(() => {
     const fetchData = async () => {
       const usersApi = await getAllUsers()
+      if (usersApi.error) {
+        history.push('/')
+        return
+      }
       setUserList(usersApi)
     }
     fetchData()
