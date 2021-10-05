@@ -22,19 +22,21 @@ const UserList = () => {
   return (
     <section className='page-wrapper' id='userlist'>
       <h1>Users</h1>
-      {
-        userList && userList.map(user =>
-          <div className="user-card" key={user.username}>
-            <div className="user-avatar-container">
-              <img src={user.avatar} alt="user avatar" />
+      <div className="user-cards-container">
+        {
+          userList && userList.map(user =>
+            <div className="user-card" key={user.username}>
+              <div className="user-avatar-container">
+                <img src={user.avatar} alt="user avatar" />
+              </div>
+              <div className="user-data">
+                <h3>{user.username}</h3>
+                <p>{user.email}</p>
+              </div>
             </div>
-            <div className="user-data">
-              <h3>{user.username}</h3>
-              <p>{user.email}</p>
-            </div>
-          </div>
-        )
-      }
+          )
+        }
+      </div>
     </section>
   )
 }

@@ -9,6 +9,7 @@
     background: center / cover no-repeat url('../statics/bg.jpg');
     color: white;
     font-family: 'Montserrat', 'sans-serif';
+    overflow-x: hidden;
 
     .page-wrapper {
       padding: 25px;
@@ -101,39 +102,65 @@
 
     #userlist {
 
-      .user-card {
-        width: 320px;
-        margin-bottom: 15px;
-        padding: 10px;
-        display: flex;
-        align-items: center;
-        border: 3px solid black;
-        background-color: rgba(0, 0, 0, 0.75);
-        border-radius: 5px;
+      .user-cards-container {
+        max-height: 660px;
+        margin-top: 90px;
+        padding: 0px 20px;
+        overflow: hidden;
+        position: fixed;
 
-        .user-avatar-container {
-          flex-basis: 35%;
+        &:hover {
+          overflow-y: auto;
+        }
+
+        .user-card {
+          width: 340px;
+          margin-bottom: 15px;
+          padding: 10px;
           display: flex;
           align-items: center;
-          justify-content: center;
-
-          img {
-            width: 125px;
-            height: 125px;
-            border-radius: 50%;
+          border: 3px solid black;
+          background-color: rgba(0, 0, 0, 0.75);
+          border-radius: 5px;
+  
+          .user-avatar-container {
+            flex-basis: 35%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+  
+            img {
+              width: 125px;
+              height: 125px;
+              border-radius: 50%;
+            }
+          }
+  
+          .user-data {
+            flex-basis: 65%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+  
+            p {
+              padding: 5px 0;
+              font-size: 90%;
+            }
           }
         }
 
-        .user-data {
-          flex-basis: 65%;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-
-          p {
-            padding: 5px 0;
-            font-size: 90%;
-          }
+        &::-webkit-scrollbar{
+          width:  8px;
+        }
+        &::-webkit-scrollbar-track {
+          background: rgba(0, 0, 0, 0.75);
+          -webkit-box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.75);
+        }
+        &::-webkit-scrollbar-thumb {
+          -webkit-border-radius: 10px;
+          border-radius: 10px;
+          background: rgb(82, 82, 82);
+          -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0); 
         }
       }
     }
