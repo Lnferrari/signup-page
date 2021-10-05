@@ -17,6 +17,20 @@ export const signupUser = async (userData) => {
   }
 }
 
+export const loginUser = async (userData) => {
+  try {
+    const resApi = await (
+      await axios.post(
+        `/login`,
+        userData
+      )
+    ).data
+    return resApi
+  } catch (err) {
+    return err.response.data
+  }
+}
+
 export const getAllUsers = async () => {
   try {
     const resApi = await (

@@ -1,4 +1,5 @@
 import {BrowserRouter as Router, Switch, Route, NavLink} from 'react-router-dom'
+import Login from './Login';
 import Signup from './Signup';
 import UserList from './UserList';
 
@@ -20,6 +21,7 @@ function App() {
         <Switch>
           <main>
             <Route exact path='/signup' component={Signup} />
+            <Route exact path='/login' component={Login} />
             <Route exact path='/users' component={UserList} />
           </main>
         </Switch>
