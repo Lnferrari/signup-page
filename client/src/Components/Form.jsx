@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useHistory, useLocation } from 'react-router';
 import { signupUser, loginUser } from '../helpers/apiCalls';
 import Resizer from "react-image-file-resizer";
+import UserContext from '../context/UserContext';
 
 const initialState = {
   // avatar: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.sqhUFRHRSP73IW9-wcDMcQHaHa%26pid%3DApi&f=1',
@@ -11,6 +12,8 @@ const initialState = {
 
 const Form = () => {
   const [ userInputs, setUserInputs ] = useState(initialState)
+  const { setUser } = useContext(UserContext)
+
 
   let { pathname: route } = useLocation()
   let history = useHistory()
@@ -58,6 +61,7 @@ const Form = () => {
       }
 
       if (!userApi.error) {
+        setUser(userApi)
         history.push('/users')
       }
 

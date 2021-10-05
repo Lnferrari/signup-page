@@ -54,3 +54,14 @@ export const authenticateUser = async () => {
     return err.response.data
   }
 }
+
+export const logoutUser = async () => {
+  try {
+    const resApi = await (
+      await axios(`/users/logout`)
+    ).data
+    return resApi
+  } catch (err) {
+    return err.response.data
+  }
+}
