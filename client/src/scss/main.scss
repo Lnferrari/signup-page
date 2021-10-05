@@ -11,6 +11,27 @@
     font-family: 'Montserrat', 'sans-serif';
     overflow-x: hidden;
 
+    nav {
+      height: 40px;
+      padding: 5px 10px;
+      background-color: rgba(0, 0, 0, 0.4);
+      font-weight: bold;
+      letter-spacing: .8px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      a {
+        padding: 5px 10px;
+        color: white;
+        text-decoration: none;
+
+        &.active {
+          border-bottom: 2px solid white;
+        }
+      }
+    }
+
     .page-wrapper {
       padding: 25px;
       display: flex;
