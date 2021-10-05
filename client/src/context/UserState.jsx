@@ -1,4 +1,4 @@
-import React, { Children, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { authenticateUser } from '../helpers/apiCalls'
 import UserContext from './UserContext'
 
