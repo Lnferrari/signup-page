@@ -30,6 +30,20 @@
           border-bottom: 2px solid white;
         }
       }
+
+      p {
+        padding: 5px 10px;
+        background-color: transparent;
+        color: white;
+        border: none;
+        outline: none;
+        cursor: pointer;
+
+        &:hover {
+          box-shadow: 0 0 10px white;
+          border-radius: 5px;
+        }
+      }
     }
 
     main {

@@ -34,9 +34,9 @@ function App() {
                 <NavLink to='/users' activeClassName='active'>
                   Users
                 </NavLink>
-                <button onClick={handleLogout}>
+                <p onClick={handleLogout}>
                   Logout
-                </button>
+                </p>
               </>
           }
           
