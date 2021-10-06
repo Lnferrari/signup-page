@@ -75,7 +75,7 @@ To get a local copy up and running follow these simple steps.
 
 1. Clone the repo
    ```sh
-   git clone git@github.com:Lnferrari/youtube-clone.git
+   git clone git@github.com:Lnferrari/signup-page.git
    ```
 2. Install NPM packages
    ```sh
@@ -141,6 +141,6 @@ Distributed under the MIT License.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [main]:
-[issues]: https://github.com/Lnferrari/simple-signup/issues
-[project link]: https://github.com/Lnferrari/simple-signup
+[issues]: https://github.com/Lnferrari/signup-page/issues
+[project link]: https://github.com/Lnferrari/signup-page
 [linkedin]: https://www.linkedin.com/in/lucasferrari1/
