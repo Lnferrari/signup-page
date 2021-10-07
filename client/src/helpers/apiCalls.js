@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-axios.defaults.baseURL = 'http://localhost:5000'
+axios.defaults.baseURL = 'https://signup-api.vercel.app'
 axios.defaults.withCredentials = true
 
 export const signupUser = async (userData) => {
