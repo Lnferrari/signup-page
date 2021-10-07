@@ -38,20 +38,6 @@
           }
         }
       }
-
-      // p {
-      //   padding: 5px 10px;
-      //   background-color: transparent;
-      //   color: white;
-      //   border: none;
-      //   outline: none;
-      //   cursor: pointer;
-
-      //   &:hover {
-      //     box-shadow: 0 0 10px white;
-      //     border-radius: 5px;
-      //   }
-      // }
     }
 
     main {
@@ -68,7 +54,6 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        // justify-content: center;
   
         form {
           min-width: 340px;
@@ -155,13 +140,14 @@
         }
 
         .user-cards-container {
-          max-height: 650px;
+          max-height: 660px;
+          margin-top: 50px;
           padding: 0px 20px;
           overflow: hidden;
           position: fixed;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
 
           &:hover {
             overflow-y: auto;
