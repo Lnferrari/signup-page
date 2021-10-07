@@ -1,8 +1,8 @@
 import mongoose from 'mongoose'
 import jwt from 'jsonwebtoken'
-import { JWT_TOKEN } from '../server.js'
 
 const { Schema, model } = mongoose
+const JWT_TOKEN = process.env.JWT_TOKEN
 
 const UserSchema = new Schema({
   avatar: { type: String },
